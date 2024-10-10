@@ -17,25 +17,21 @@ function Header() {
     ];
 
     return (
-        <div className='p-4 pb-3 pl-10 shadow-lg flex items-center justify-between gap-4 flex-wrap'>
-            <div className='flex gap-24 items-center'>
-                <Image src={'/logo.png'} height={70} width={70} alt='logo' />
+        <div className='p-4 pb-3 shadow-lg flex flex-col md:flex-row items-center justify-between gap-4'>
+            <div className='flex items-center gap-4'>
+                <Image src={'/logo.png'} height={50} width={50} alt='logo' />
 
-                <div className='flex gap-6 items-center justify-between'>
-                    {headerMenu.map((item, index) => (
-                        <div key={index} className='flex gap-2 items-center'>
-                            <Image src={item.icon} alt='image' width={25} height={25} />
+                <div className='flex gap-6 items-center'>
+                    {headerMenu.map((item) => (
+                        <div key={item.id} className='flex gap-2 items-center'>
+                            <Image src={item.icon} alt={item.name} width={25} height={25} />
                             <h2 className='text-[14px] font-medium'>{item.name}</h2>
                         </div>
                     ))}
                 </div>
             </div>
 
-            <div className='hidden md:block'> {/* Hide on mobile */}
-                <UserButton />
-            </div>
-
-            <div className='md:hidden'> {/* Show on mobile */}
+            <div className='mt-4 md:mt-0'> {/* Keeps the button aligned vertically on small screens */}
                 <UserButton />
             </div>
         </div>
